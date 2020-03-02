@@ -1,4 +1,4 @@
-//package com.epsilon.agilityevents.custom.evaluator;
+package com.epsilon.agilityevents.custom.evaluator;
  
 import java.io.IOException;
 import java.io.ObjectInput;
@@ -229,15 +229,15 @@ public class StringIgnoreCaseEvaluatorDefinition implements EvaluatorDefinition 
             return (buildArrayList(value.getValue())).stream().anyMatch(((String) objectValue)::equalsIgnoreCase);
         }
  
-        @Override
-        public boolean evaluate(InternalWorkingMemory workingMemory, InternalReadAccessor leftExtractor, InternalFactHandle left, InternalReadAccessor rightExtractor, InternalFactHandle right) {
-            final Object value1 = leftExtractor.getValue(workingMemory, left.getObject());
-            final Object value2 = rightExtractor.getValue(workingMemory, right.getObject());
-            if (this.getOperator().isNegated()) {
-                return (buildArrayList(value2)).stream().noneMatch(((String) value1)::equalsIgnoreCase);
-            }
-            return (buildArrayList(value2)).stream().anyMatch(((String) value1)::equalsIgnoreCase);
-        }
+//         @Override
+//         public boolean evaluate(InternalWorkingMemory workingMemory, InternalReadAccessor leftExtractor, InternalFactHandle left, InternalReadAccessor rightExtractor, InternalFactHandle right) {
+//             final Object value1 = leftExtractor.getValue(workingMemory, left.getObject());
+//             final Object value2 = rightExtractor.getValue(workingMemory, right.getObject());
+//             if (this.getOperator().isNegated()) {
+//                 return (buildArrayList(value2)).stream().noneMatch(((String) value1)::equalsIgnoreCase);
+//             }
+//             return (buildArrayList(value2)).stream().anyMatch(((String) value1)::equalsIgnoreCase);
+//         }
  
         @Override
         public boolean evaluateCachedLeft(InternalWorkingMemory workingMemory, VariableContextEntry context, InternalFactHandle right) {
